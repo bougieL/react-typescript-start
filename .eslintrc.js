@@ -17,8 +17,13 @@ module.exports = {
     sourceType: "module"
   },
   rules: {
-    indent: ["error", 2],
-    semi: ["error", "never"],
-    quotes: ["error", "single"]
+    indent: ["warn", 2],
+    semi: ["warn", "never"],
+    quotes: ["warn", "single"],
+    'padding-line-between-statements': [
+      "warn",
+      { blankLine: "always", prev: "*", next: "class" }
+    ],
+    'no-multiple-empty-lines': ["error", { "max": 1, "maxEOF": 0 }]
   }
 };

@@ -13,6 +13,7 @@ module.exports = {
   appPackageJson: resolve('package.json'),
   appSrc: resolve('src'),
   appTsConfig: resolve('tsconfig.json'),
-  appEsLint: resolve('tslint.json'),
-  appNodeModules: resolve('node_modules')
+  appNodeModules: resolve('node_modules'),
+  binESLint: resolve('node_modules', '.bin', 'eslint'),
+  binStyleLint: resolve('node_modules', '.bin', 'stylelint')
 }
