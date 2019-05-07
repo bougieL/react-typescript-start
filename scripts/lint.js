@@ -1,5 +1,0 @@
-const {CLIEngine} = require('eslint')
-const { configESLint, appSrc } = require('../config/_paths')
-const cli = new CLIEngine({...configESLint, fix: true})
-console.log(`${appSrc}/**/*.tsx`)
-const report = cli.executeOnFiles([`${appSrc}/app.tsx`])

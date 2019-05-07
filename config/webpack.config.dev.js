@@ -77,6 +77,8 @@ module.exports = {
             options: {
               sourceMap: true
             }
+          }, {
+            loader: require.resolve('postcss-loader')
           }
         ]
       },
