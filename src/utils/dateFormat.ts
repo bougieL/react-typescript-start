@@ -13,10 +13,10 @@ export function dateFormat(date: TDate, formatter: string): string {
   const second = `${iDate.getSeconds()}`.padStart(2, '0')
 
   return formatter
-    .replace(/yyyy/ig, year)
+    .replace(/yyyy/gi, year)
     .replace(/MM/g, month)
-    .replace(/dd/ig, day)
-    .replace(/hh/ig, hour)
+    .replace(/dd/gi, day)
+    .replace(/hh/gi, hour)
     .replace(/mm/g, minute)
-    .replace(/ss/ig, second)
+    .replace(/ss/gi, second)
 }

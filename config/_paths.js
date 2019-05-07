@@ -15,5 +15,6 @@ module.exports = {
   appTsConfig: resolve('tsconfig.json'),
   appNodeModules: resolve('node_modules'),
   binESLint: resolve('node_modules', '.bin', 'eslint'),
-  binStyleLint: resolve('node_modules', '.bin', 'stylelint')
+  binStyleLint: resolve('node_modules', '.bin', 'stylelint'),
+  binPrettier: resolve('node_modules', '.bin', 'prettier')
 }

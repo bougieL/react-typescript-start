@@ -3,10 +3,8 @@ module.exports = {
   extends: ['react-app'],
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['@typescript-eslint', 'react'],
-  rules: {
-
-  }
+  rules: {}
 }
