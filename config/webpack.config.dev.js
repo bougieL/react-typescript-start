@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const paths = require('./_paths')
-// const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const { getHostIP } = require('./_utils')
 
@@ -34,14 +33,51 @@ module.exports = {
       '.web.jsx',
       '.jsx',
       '.scss',
-      '.less'
+      '.less',
+      '.css'
     ]
   },
   module: {
     rules: [
       {
+        test: /\.(scss|css)$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
+        exclude: [/\.(js|jsx|mjs|ts|tsx|html|json|scss|css)$/],
+        loader: 'file-loader',
+        options: {
+          name: 'static/media/[name].[ext]'
+        }
+      },
+      {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-        loader: require.resolve('url-loader'),
+        loader: 'url-loader',
         options: {
           limit: 10000,
           name: 'static/media/[name].[ext]'
@@ -52,45 +88,13 @@ module.exports = {
         include: paths.appSrc,
         use: [
           {
-            loader: require.resolve('ts-loader'),
+            loader: 'ts-loader',
             options: {
               transpileOnly: true
             }
           },
-          {
-            loader: require.resolve('eslint-loader')
-          }
+          { loader: 'eslint-loader' }
         ]
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: require.resolve('style-loader')
-          },
-          {
-            loader: require.resolve('css-loader'),
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: require.resolve('sass-loader'),
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: require.resolve('postcss-loader')
-          }
-        ]
-      },
-      {
-        exclude: [/\.(js|jsx|mjs|ts|tsx)$/, /\.html$/, /\.json$/, /\.scss$/],
-        loader: require.resolve('file-loader'),
-        options: {
-          name: 'static/media/[name].[ext]'
-        }
       }
     ]
   },

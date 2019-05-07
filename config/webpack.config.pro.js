@@ -28,7 +28,8 @@ module.exports = {
       '.web.jsx',
       '.jsx',
       '.scss',
-      '.less'
+      '.less',
+      '.css'
     ]
   },
   module: {
@@ -54,20 +55,14 @@ module.exports = {
         ]
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: ['css-loader', 'sass-loader', 'postcss-loader']
         })
       },
       {
-        exclude: [
-          /\.(js|jsx|mjs|ts|tsx)$/,
-          /\.html$/,
-          /\.json$/,
-          /\.scss$/,
-          /\.css$/
-        ],
+        exclude: [/\.(js|jsx|mjs|ts|tsx|html|json|scss|css)$/],
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash:8]',
