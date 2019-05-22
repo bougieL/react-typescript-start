@@ -3,8 +3,12 @@
     "baseUrl": ".",
     "outDir": "lib",
     "module": "commonjs",
-    "target": "es5",
-    "lib": ["es7", "dom"],
+    "target": "es6",
+    "lib": [
+      "es7",
+      "dom",
+      "esnext"
+    ],
     "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
@@ -20,8 +24,16 @@
     "noUnusedLocals": true,
     "declaration": true,
     "paths": {
-      "@/*": ["src/*"]
-    }
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "strict": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "pretty": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
